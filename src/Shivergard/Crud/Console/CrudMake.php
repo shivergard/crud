@@ -6,6 +6,8 @@ use Illuminate\Console\GeneratorCommand;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 
+use Config;
+
 class CrudMake extends GeneratorCommand {
 
 	/**
@@ -116,12 +118,12 @@ class CrudMake extends GeneratorCommand {
 	 */
 	protected function getModelNamespace()
 	{
-		return $this->getAppNamespace();
+		return $this->getAppNamespace().'Model\\'.Config::get('app.name');
 	}
 
 		protected function getControllerNamespace()
 	{
-		return $this->getAppNamespace().'Http\Controllers';
+		return $this->getAppNamespace().'Http\Controllers\\'.Config::get('app.name');
 	}
 
 	/**
