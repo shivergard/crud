@@ -111,7 +111,7 @@
 <link href="{{ asset('/packages/datepicker/css/datepicker.css') }}" rel="stylesheet">
 @endsection
 
-@section('script')
+@section('scripts')
 @parent
 <script src="{{ asset('/packages/datepicker/js/bootstrap-datepicker.js') }}"></script>
 <script type="text/javascript">
@@ -152,4 +152,4 @@
 
 	
 </script>
-@endsection
+@stop
