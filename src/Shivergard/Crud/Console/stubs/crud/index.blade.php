@@ -96,7 +96,7 @@
 			    <th>Actions</th>
 			    </thead>
 			    <tbody id="item-list">
-			    	@include('bcrud.list' , array('list' => $list))	      	
+			    	@include('list' , array('list' => $list))	      	
 			    </tbody>
 			  </table>
 			  {!!$list->render()!!}
@@ -112,6 +112,7 @@
 @endsection
 
 @section('script')
+@parent
 <script src="{{ asset('/packages/datepicker/js/bootstrap-datepicker.js') }}"></script>
 <script type="text/javascript">
 	function dropNode(data){

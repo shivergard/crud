@@ -6,7 +6,7 @@ use \Session;
 
 class CrudController extends Controller {
 
-	public $bladeDir = 'crud';
+	public $bladeDir = '';
 
 	public	$rules = array(
 		'name'       => 'required'
