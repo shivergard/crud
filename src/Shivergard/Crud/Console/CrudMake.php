@@ -118,12 +118,12 @@ class CrudMake extends GeneratorCommand {
 	 */
 	protected function getModelNamespace()
 	{
-		return $this->getAppNamespace().'Model\\'.Config::get('app.name');
+		return $this->getAppNamespace().'Model\\'.ucfirst(Config::get('app.name')).'\\';
 	}
 
 		protected function getControllerNamespace()
 	{
-		return $this->getAppNamespace().'Http\Controllers\\'.Config::get('app.name');
+		return $this->getAppNamespace().'Http\Controllers\\'.ucfirst(Config::get('app.name')).'\\';
 	}
 
 	/**
