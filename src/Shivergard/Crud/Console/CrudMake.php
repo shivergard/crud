@@ -65,7 +65,7 @@ class CrudMake extends GeneratorCommand {
 		$this->files->put($path, $this->buildController($controllerName));
 		$this->info($this->type.' controller created successfully.');
 
-		$this->info("Route::resource('/clients', '".$controllerName."');");
+		$this->info("Route::resource('/clients', '".str_replace("App\Http\Controllers\\" , "" , $controllerName)."');");
 	}
 
 	protected function parseModelName($name)
