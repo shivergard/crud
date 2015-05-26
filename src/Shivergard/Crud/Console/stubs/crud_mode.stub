@@ -1,0 +1,13 @@
+<?php namespace {{namespace}};
+
+use Illuminate\Database\Eloquent\Model;
+
+use {{rootNamespace}}BaseModel;
+
+use Illuminate\Http\Request;
+
+class {{class}} extends BaseModel {
+
+	protected $table = '{{table}}';
+
+}
