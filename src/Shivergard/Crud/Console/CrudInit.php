@@ -31,7 +31,6 @@ class CrudInit extends GeneratorCommand {
 	 */
 	public function fire()
 	{
-		/**
 		if ($this->files->exists($this->laravel['path'].'/BaseModel.php'))
 		{
 			return $this->error('Model already exists!');
@@ -44,11 +43,7 @@ class CrudInit extends GeneratorCommand {
 			return $this->error('Model already exists!');
 		}
 		$this->files->put($this->laravel['path'].'/Http/Controllers/CrudController.php', $this->files->get($this->getControllerStub()));
-		**/
-		dd(
-			array(
-__DIR__.'/stubs/crud' , base_path().'/resources/views/'	
-				)
+		
 
 		);
 		$this->files->copyDirectory(__DIR__.'/stubs/crud' , base_path().'/resources/views/');
