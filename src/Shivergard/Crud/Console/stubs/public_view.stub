@@ -1,0 +1,18 @@
+@extends('app') 
+@section('title') 
+{{{$name }}} :: 
+@parent 
+@stop 
+
+@section('content')
+<h3>{{{ $name }}}</h3>
+
+
+					
+<@foreach($fields as $fieldName)
+
+	<div id="{{$fieldName}}"> {{$fieldName}}:{{${{model_low}}->$fieldName}} </div>
+
+@endforeach
+
+@stop

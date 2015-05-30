@@ -1,0 +1,24 @@
+<?php namespace {{namespace}};
+
+use {{model}};
+
+class {{class}} extends Controller {
+
+    public function __construct()
+    {
+        $this->middleware('auth', [ 'except' => [ 'index', 'show' ] ]);
+    }
+
+    public function show($name)
+	{
+        ${{model_low}} = {{model_name}}::where('name', 'LIKE' , "%".$name."%")->paginate(20);
+
+        if (${{model_low}}->count() == 0)
+            return \Redirect::to(action("Auth\SwitchController@init"));
+
+        $fields = ${{model_low}}[0]->getAllColumnsNames(true);
+
+        return view('{{model_low}}.view',compact('{{model_low}}' , 'name' , 'fields'));
+	}
+
+}
