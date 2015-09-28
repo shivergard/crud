@@ -107,6 +107,27 @@ class CrudMake extends GeneratorCommand {
 
 
 
+    /**
+     * Replace the namespace for the given stub.
+     *
+     * @param  string  $stub
+     * @param  string  $name
+     * @return $this
+     */
+    protected function replaceNamespace(&$stub, $name)
+    {
+        $stub = str_replace(
+            '{{namespace}}', $this->getNamespace($name), $stub
+        );
+
+        $stub = str_replace(
+            '{{rootNamespace}}', $this->getAppNamespace(), $stub
+        );
+
+        return $this;
+    }
+
+
     protected function parseControllerName($name)
     {
         $rootNamespace = $this->getUniversalAppNamespace();
