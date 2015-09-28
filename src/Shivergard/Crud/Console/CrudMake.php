@@ -82,12 +82,29 @@ class CrudMake extends GeneratorCommand {
         return $this->parseName($this->getModelNamespace(trim($rootNamespace, '\\')).$name);
     }
 
-    protected function getUniversalAppNamespace($namespace = false){
-        if (method_exists( $this , 'getAppNamespace')){
-            return $this->getAppNamespace($namespace);
+
+    /**
+     * Get the application namespace from the Composer file.
+     *
+     * @return string
+     *
+     * @throws \RuntimeException
+     */
+    protected function getUniversalAppNamespace()
+    {
+        $composer = json_decode(file_get_contents(base_path().'/composer.json'), true);
+
+        foreach ((array) data_get($composer, 'autoload.psr-4') as $namespace => $path)
+        {
+            foreach ((array) $path as $pathChoice)
+            {
+                if (realpath(app_path()) == realpath(base_path().'/'.$pathChoice)) return $namespace;
+            }
         }
-        return $this->getNamespace($namespace);
+
+        throw new RuntimeException("Unable to detect application namespace.");
     }
+
 
 
     protected function parseControllerName($name)
