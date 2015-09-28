@@ -116,7 +116,7 @@ class CrudMake extends GeneratorCommand {
      */
     protected function replaceClass($stub, $name)
     {
-        $class = str_replace($this->getNamespace($name).'\\', '', $name);
+        $class = str_replace($this->getUniversalAppNamespace($name).'\\', '', $name);
 
         return str_replace('{{class}}', $class, $stub);
     }
@@ -132,7 +132,7 @@ class CrudMake extends GeneratorCommand {
     protected function replaceNamespace(&$stub, $name)
     {
         $stub = str_replace(
-            '{{namespace}}', $this->getNamespace($name), $stub
+            '{{namespace}}', $this->getUniversalAppNamespace($name), $stub
         );
 
         $stub = str_replace(
