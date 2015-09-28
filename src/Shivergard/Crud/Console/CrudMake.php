@@ -70,7 +70,7 @@ class CrudMake extends GeneratorCommand {
 
     protected function parseModelName($name)
     {
-        $rootNamespace = $this->getAppNamespace();
+        $rootNamespace = $this->getUniversalAppNamespace();
         if (starts_with($name, $rootNamespace))
         {
             return $name;
@@ -82,9 +82,9 @@ class CrudMake extends GeneratorCommand {
         return $this->parseName($this->getModelNamespace(trim($rootNamespace, '\\')).$name);
     }
 
-    protected function getAppNamespace($namespace = false){
-        if (method_exists( parent , 'getAppNamespace')){
-            return parent::getAppNamespace($namespace);
+    protected function getUniversalAppNamespace($namespace = false){
+        if (method_exists( $this , 'getAppNamespace')){
+            return $this->getAppNamespace($namespace);
         }
         return $this->getNamespace($namespace);
     }
@@ -92,7 +92,7 @@ class CrudMake extends GeneratorCommand {
 
     protected function parseControllerName($name)
     {
-        $rootNamespace = $this->getAppNamespace();
+        $rootNamespace = $this->getUniversalAppNamespace();
         if (starts_with($name, $rootNamespace))
         {
             return $name;
@@ -127,12 +127,12 @@ class CrudMake extends GeneratorCommand {
      */
     protected function getModelNamespace()
     {
-        return $this->getAppNamespace().'Model\\'.ucfirst(Config::get('app.name')).'\\';
+        return $this->getUniversalAppNamespace().'Model\\'.ucfirst(Config::get('app.name')).'\\';
     }
 
         protected function getControllerNamespace()
     {
-        return $this->getAppNamespace().'Http\Controllers\\'.ucfirst(Config::get('app.name'));
+        return $this->getUniversalAppNamespace().'Http\Controllers\\'.ucfirst(Config::get('app.name'));
     }
 
     /**
@@ -174,13 +174,13 @@ class CrudMake extends GeneratorCommand {
 
     protected function getModelPath($name)
     {
-        $name = str_replace($this->getAppNamespace(), '', $name);
+        $name = str_replace($this->getUniversalAppNamespace(), '', $name);
         return $this->laravel['path'].'/'.str_replace('\\', '/', $name).'.php';
     }
 
 
     protected function getControllerPath($name){
-        $name = str_replace($this->getAppNamespace(), '', $name);
+        $name = str_replace($this->getUniversalAppNamespace(), '', $name);
         return $this->laravel['path'].'/'.str_replace('\\', '/', $name).'.php';
     }
 
