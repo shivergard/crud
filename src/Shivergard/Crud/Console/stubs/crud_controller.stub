@@ -5,10 +5,12 @@ use {{rootNamespace}}Controllers\Controller;
 
 use Illuminate\Http\Request;
 
-class {{class}} extends \App\Http\Controllers\CrudController {
+class {{class}} extends \Shivergard\Crud\CrudController {
 
-	protected $layout = false;
+    protected $layout = false;
 
-	public $model = '{{model}}';
+    protected $public = true;
+
+    public $model = '{{model}}';
 
 }

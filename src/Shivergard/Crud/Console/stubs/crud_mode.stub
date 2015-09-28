@@ -6,8 +6,8 @@ use {{rootNamespace}}BaseModel;
 
 use Illuminate\Http\Request;
 
-class {{class}} extends BaseModel {
+class {{class}} extends \Shivergard\Crud\BaseModel {
 
-	protected $table = '{{table}}';
+    protected $table = '{{table}}';
 
 }
