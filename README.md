@@ -11,7 +11,7 @@ and add requirements
 
   "require": {
     ...
-        "shivergard/crud" : "dev-crud_included" 
+        "shivergard/crud" : "dev-crud_included_50" 
     },
 
 and add service provider
