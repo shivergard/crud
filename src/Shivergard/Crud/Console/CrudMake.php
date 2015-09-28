@@ -121,7 +121,7 @@ class CrudMake extends GeneratorCommand {
         );
 
         $stub = str_replace(
-            '{{rootNamespace}}', $this->getAppNamespace(), $stub
+            '{{rootNamespace}}', $this->getUniversalAppNamespace(), $stub
         );
 
         return $this;
