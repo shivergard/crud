@@ -47,7 +47,7 @@ class BaseCrudController extends \Shivergard\Crud\PackageController {
 
         if (!$inPage){
             //$pg = Settings::where('name' , "=" , 'pagination_lenght')->first();
-            $inPage = 5;//$pg->value;
+            $inPage = 30;//$pg->value;
         }
 
         $fields = $this->getAllColumnsNames($blankItem , true);
