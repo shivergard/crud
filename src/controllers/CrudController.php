@@ -25,7 +25,7 @@ class CrudController extends \Shivergard\Crud\BaseCrudController {
         if ($modelName::count() == 0)
             return \Redirect::to(action($this->getClassName(true)."@create"));
         $list = $modelName::orderBy('id', 'DESC');
-        $list = $this->getFilteredList($list)->paginate(4); 
+        $list = $this->getFilteredList($list)->paginate(30); 
 
         $blankItem = new $modelName();
 
