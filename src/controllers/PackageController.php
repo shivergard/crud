@@ -10,7 +10,7 @@ use \Config;
 
 abstract class PackageController extends BaseController {
 
-    use DispatchesCommands, ValidatesRequests;
+    use DispatchesJobs, ValidatesRequests;
 
     public function __construct()
     {
